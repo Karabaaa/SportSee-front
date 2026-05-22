@@ -1,0 +1,59 @@
+:root {
+  --page-min-width: 1024px;
+  --page-min-height: 780px;
+  --background-color: 'white';
+  --text-color: 'black';
+
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  background: var(--background-color);
+  box-sizing: border-box;
+
+}
+
+
+html {
+  min-width: var(--page-min-width);
+  min-height: var(--page-min-height);
+}
+
+body {
+  min-width: var(--page-min-width);
+  min-height: var(--page-min-height);
+  margin: 0;
+  background: var(--background-color);
+}
+
+#root {
+  min-width: var(--page-min-width);
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
