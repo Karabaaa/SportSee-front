@@ -1,4 +1,4 @@
-import { USER } from "../mockData/data";
+import USER from "../mockData/data";
 import { formatUser } from "../mappers/userMapper";
 /*
 import { fetchUser, fetchUserActivity, fetchUserAverageSessions, fetchUserPerformance } from '../api/userApi'

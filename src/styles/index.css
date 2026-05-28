@@ -1,20 +1,21 @@
 :root {
   --page-min-width: 1024px;
   --page-min-height: 780px;
-  --background-color: 'white';
-  --text-color: 'black';
+  --background-color: white;
+  --text-color: black;
+  --header-h: 91px; 
+  --sidebar-w: 117px;
+
 
   font-family: Roboto, Arial, Helvetica, sans-serif;
   color: var(--text-color);
   background: var(--background-color);
-  box-sizing: border-box;
-
 }
 
-
-html {
-  min-width: var(--page-min-width);
-  min-height: var(--page-min-height);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -25,7 +26,6 @@ body {
 }
 
 #root {
-  min-width: var(--page-min-width);
   min-height: 100vh;
 }
 
@@ -41,7 +41,7 @@ button {
   cursor: pointer;
 }
 
-a {
+a, ul {
   color: inherit;
   text-decoration: none;
 }
