@@ -1,12 +1,12 @@
-import "../styles/SideBar.css";
-import icon1 from "../assets/icon-1.svg";
-import icon2 from "../assets/icon-2.svg";
-import icon3 from "../assets/icon-3.svg";
-import icon4 from "../assets/icon-4.svg";
+import styles from "./SideBar.module.css";
+import icon1 from "../../assets/icon-1.svg";
+import icon2 from "../../assets/icon-2.svg";
+import icon3 from "../../assets/icon-3.svg";
+import icon4 from "../../assets/icon-4.svg";
 
 export default function SideBar() {
   return (
-    <nav className="sidebar">
+    <nav className={styles.sidebar}>
       <ul>
         <li>
           <a href="/">

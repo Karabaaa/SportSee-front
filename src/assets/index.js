@@ -1,0 +1,9 @@
+export { default as CaloriesIcon } from "./calories-icon.svg";
+export { default as ProteinIcon } from "./protein-icon.svg";
+export { default as CarbsIcon } from "./carbs-icon.svg";
+export { default as FatIcon } from "./fat-icon.svg";
+export { default as Logo } from "./logo.svg";
+export { default as Icon1 } from "./icon-1.svg";
+export { default as Icon2 } from "./icon-2.svg";
+export { default as Icon3 } from "./icon-3.svg";
+export { default as Icon4 } from "./icon-4.svg";

@@ -1,13 +1,13 @@
-import logo from "../assets/logo.svg";
-import "../styles/NavBar.css";
+import logo from "../../assets/logo.svg";
+import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <ul>
         <li>
-          <div className="logo-container">
-            <img src={logo} alt="SportSee Logo" className="logo" />
+          <div className={styles.logoContainer}>
+            <img src={logo} alt="SportSee Logo" className={styles.logo} />
           </div>
         </li>
         <li>
