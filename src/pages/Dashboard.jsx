@@ -2,8 +2,13 @@ import styles from "./Dashboard.module.css";
 import NavBar from "../components/navbar/NavBar";
 import SideBar from "../components/sidebar/SideBar";
 import userService from "../services/userService";
-import Indicator from "../components/indicators/Indicator";
-import { CaloriesIcon, ProteinIcon, CarbsIcon, FatIcon } from "../assets";
+import Indicator from "../components/indicator/Indicator";
+import {
+  CaloriesIcon,
+  ProteinIcon,
+  CarbsIcon,
+  FatIcon,
+} from "../assets/inde.js";
 
 export default function Dashboard() {
   const {
