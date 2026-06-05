@@ -1,0 +1,47 @@
+.title {
+font-size: 15px;
+color: #20253A;
+}
+
+.legend{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.label{
+    color: #74798c;
+    font-size: 14px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 80px;
+}
+
+.activityChart {
+        width: 100%;
+        max-width: 835px;
+        background-color: var(--tertiary-color);
+        padding: 24px 30px;
+        height: 320px;
+        border-radius: 5px;
+
+}

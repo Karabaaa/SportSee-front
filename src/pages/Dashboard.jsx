@@ -9,6 +9,8 @@ import {
   CarbsIcon,
   FatIcon,
 } from "../assets/index.js";
+import ActivityChart from "../components/charts/ActivityChart";
+import { SessionChart } from "../components/charts/SessionChart";
 
 export default function Dashboard() {
   const {
@@ -62,7 +64,10 @@ export default function Dashboard() {
           <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
         <div>
-          <div className={styles.charts}></div>
+          <div className={styles.charts}>
+            <ActivityChart data={userActivity.sessions} />
+            <SessionChart data={userAverageSessions.sessions} />
+          </div>
           <div className={styles.keyData}>
             {userIndicators.map((indicator) => (
               <Indicator

@@ -3,12 +3,18 @@
   --page-min-height: 780px;
   --background-color: white;
   --text-color: black;
+  --secondary-text-color: #74798C;
   --primary-color: #FF0000;
+  --secondary-color: #282D30;
+  --tertiary-color: #FBFBFB;
   --header-h: 91px; 
   --sidebar-w: 117px;
 
 
   font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
   color: var(--text-color);
   background: var(--background-color);
 }
@@ -57,4 +63,5 @@ h2,
 h3,
 p {
   margin: 0;
+  font-weight: inherit;
 }
