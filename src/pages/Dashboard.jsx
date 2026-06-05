@@ -8,7 +8,7 @@ import {
   ProteinIcon,
   CarbsIcon,
   FatIcon,
-} from "../assets/inde.js";
+} from "../assets/index.js";
 
 export default function Dashboard() {
   const {
