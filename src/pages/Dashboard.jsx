@@ -11,6 +11,8 @@ import {
 } from "../assets/index.js";
 import ActivityChart from "../components/charts/ActivityChart";
 import { SessionChart } from "../components/charts/SessionChart";
+import { PerformanceChart } from "../components/charts/PerformanceChart";
+import { GoalChart } from "../components/charts/GoalChart";
 
 export default function Dashboard() {
   const {
@@ -58,15 +60,19 @@ export default function Dashboard() {
       <SideBar />
       <div className={styles.dashboardContent}>
         <div className={styles.userInfo}>
-          <h1>
+          <h1 className={styles.title}>
             Bonjour <span>{userMainData.firstName}</span>
           </h1>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+          <p className={styles.subtitle}>
+            Félicitation ! Vous avez explosé vos objectifs hier 👏
+          </p>
         </div>
         <div>
           <div className={styles.charts}>
             <ActivityChart data={userActivity.sessions} />
             <SessionChart data={userAverageSessions.sessions} />
+            <PerformanceChart data={userPerformance} />
+            <GoalChart data={userMainData.score} />
           </div>
           <div className={styles.keyData}>
             {userIndicators.map((indicator) => (
@@ -80,13 +86,6 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
-
-        <p>Activité session 1 : {userActivity.sessions[0].day}</p>
-        <p>
-          Durée moyenne session 1 :{" "}
-          {userAverageSessions.sessions[0].sessionLength} minutes
-        </p>
-        <p>Performance session 1 : {userPerformance.data[0].value}</p>
       </div>
     </div>
   );

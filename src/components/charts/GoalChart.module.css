@@ -1,0 +1,51 @@
+.goalChart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 260px;
+  background-color: var(--tertiary-color);
+  border-radius: 5px;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 15px;
+  z-index: 2;
+}
+
+.scoreContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  gap:6px;
+}
+
+.score {
+  color: var(--secondary-color);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+}
+
+.scoreLabel {
+  color: var(--secondary-text-color);
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+}

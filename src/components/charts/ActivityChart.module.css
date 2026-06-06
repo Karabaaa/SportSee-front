@@ -24,7 +24,7 @@ color: #20253A;
 }
 
 .label{
-    color: #74798c;
+    color: var(--secondary-text-color);
     font-size: 14px;
 }
 

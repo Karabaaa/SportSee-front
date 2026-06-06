@@ -6,15 +6,15 @@
   overflow: auto;
 }
 
-h1 {
+.title {
   font-size: 48px;
 }
 
-h1 span {
+.title span {
   color: var(--primary-color);
 }
 
-p {
+.subtitle {
   font-weight: 400;
   font-size: 18px;
 }
