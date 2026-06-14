@@ -2,7 +2,8 @@
         width: 100%;
         max-width: 260px;
         background-color: var(--primary-color);
-        height: 260px;
+        aspect-ratio: 1;
+        height: auto;
         border-radius: 5px;
         box-shadow: 0px 2px 4px 0px #00000005;
         position: relative;
@@ -18,4 +19,16 @@
         top: 30px;
         left: 35px;
         z-index: 2;
+}
+
+@media (max-width: 1200px), (max-height: 850px) {
+        .sessionChart {
+                max-width: 190px;
+        }
+
+        .title {
+                font-size: 12px;
+                top: 22px;
+                left: 22px;
+        }
 }

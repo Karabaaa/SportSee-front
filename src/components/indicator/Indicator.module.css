@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: flex-start;
     gap: 32px;
-    width: 258px;
+    width: 100%;
+    max-width: 258px;
     height: 124px;
     border-radius: 5px;
     background: var(--tertiary-color);
@@ -40,4 +41,27 @@
     color: var(--secondary-text-color);
     text-align: left;
     width:100%;
+}
+
+@media (max-width: 1200px), (max-height: 850px) {
+    .indicator {
+        max-width: 170px;
+        height: 95px;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .value {
+        font-size: 16px;
+        gap: 4px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
 }

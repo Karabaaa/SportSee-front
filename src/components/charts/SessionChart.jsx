@@ -2,12 +2,10 @@ import styles from "./SessionChart.module.css";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Rectangle } from "recharts";
 
 const textColor = "rgba(255, 255, 255, 0.5)";
-const sessionChartHeight = 260;
-const sessionChartWidth = 260;
 const sessionDays = ["L", "M", "M", "J", "V", "S", "D"];
 
 const CustomCursor = (props) => {
-  const { points } = props;
+  const { points, width, height } = props;
   const { x } = points[0];
 
   return (
@@ -16,8 +14,8 @@ const CustomCursor = (props) => {
       stroke="none"
       x={x}
       y={0}
-      width={sessionChartWidth - x}
-      height={sessionChartHeight}
+      width={width - x}
+      height={height}
     />
   );
 };
@@ -32,8 +30,7 @@ export const SessionChart = ({ data }) => {
       <LineChart
         style={{
           width: "100%",
-          maxWidth: 260,
-          height: 260,
+          height: "100%",
         }}
         responsive
         data={data}

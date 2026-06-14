@@ -44,3 +44,23 @@ color: #20253A;
         height: 320px;
         border-radius: 5px;
 }
+
+@media (max-width: 1200px), (max-height: 850px) {
+    .legend {
+        gap: 12px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    .header {
+        padding-bottom: 10px;
+        padding-right: 8px;
+    }
+
+    .activityChart {
+        height: 285px;
+        padding: 20px;
+    }
+}

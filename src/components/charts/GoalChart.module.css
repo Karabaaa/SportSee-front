@@ -3,8 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 260px;
-  height: 260px;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1;
+  height: auto;
   background-color: var(--tertiary-color);
   border-radius: 5px;
   position: relative;
@@ -48,4 +50,30 @@
   font-size: 16px;
   line-height: 26px;
   text-align: center;
+}
+
+@media (max-width: 1200px), (max-height: 850px) {
+  .goalChart {
+    max-width: 190px;
+  }
+
+  .title {
+    top: 16px;
+    left: 16px;
+    font-size: 13px;
+  }
+
+  .scoreContent {
+    width: 120px;
+    height: 120px;
+  }
+
+  .score {
+    font-size: 22px;
+  }
+
+  .scoreLabel {
+    font-size: 13px;
+    line-height: 20px;
+  }
 }

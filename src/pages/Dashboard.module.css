@@ -7,8 +7,8 @@
   margin-top: var(--header-h);
   margin-left: var(--sidebar-w);
   height: calc(100% - var(--header-h));
-  padding: 50px 100px;
-  overflow: hidden;
+  padding: 40px 100px;
+  overflow: auto;
 }
 
 .title {
@@ -30,7 +30,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   padding-bottom: 75px;
 }
 
@@ -40,6 +40,7 @@
   align-items: center;
   justify-content: space-between;
   gap:40px;
+  max-width: 258px;
 }
 
 .charts {
@@ -47,22 +48,57 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 35px;
-  width: 835px;
+  width: 100%;
+  max-width: 835px;
+  height: 100%;
 }
 
 .smallCharts {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  gap: 35px;
   width: 100%;
 }
 
 .dashboardData {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(0, 835px) minmax(170px, 258px);
   align-items: flex-start;
   justify-content: flex-start;
-  gap:40px;
+  gap: 40px;
+  width: 100%;
+  max-width: calc(835px + 40px + 258px);
+}
+
+@media (max-width: 1200px), (max-height: 850px) {
+  .dashboardContent {
+    padding: 25px 35px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .userInfo {
+    gap: 20px;
+    padding-bottom: 30px;
+  }
+
+  .dashboardData {
+    gap: 20px;
+  }
+
+  .charts {
+    gap: 20px;
+  }
+
+  .smallCharts {
+    gap: 20px;
+  }
+
 }
