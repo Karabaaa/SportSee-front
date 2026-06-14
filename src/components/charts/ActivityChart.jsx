@@ -18,6 +18,8 @@ const LegendItem = ({ color, label }) => {
   );
 };
 
+const lineOffset = 0.1;
+
 export default function ActivityChart({ data }) {
   const chartData = data.map((session, index) => ({
     ...session,
@@ -30,6 +32,11 @@ export default function ActivityChart({ data }) {
   const yAxisMin = minKilogram;
   const yAxisMax = maxKilogram + 1;
   const middleTick = Math.round((yAxisMin + yAxisMax) / 2);
+  const firstDay = chartData[0]?.day ?? 1;
+  const lastDay = chartData[chartData.length - 1]?.day ?? 1;
+  const lineStart = firstDay - lineOffset;
+  const lineEnd = lastDay + lineOffset;
+  const dayTicks = chartData.map(({ day }) => day);
 
   const kgColor = "var(--secondary-color)";
   const kgLabel = "Poids (kg)";
@@ -46,8 +53,8 @@ export default function ActivityChart({ data }) {
           <LegendItem color={caloriesColor} label={caloriesLabel} />
         </div>
       </div>
-      <ResponsiveContainer maxWidth="700px" width="100%" height={145}>
-        <BarChart data={chartData} barGap={8}>
+      <ResponsiveContainer maxWidth="700px" width="100%" height={210}>
+        <BarChart data={chartData} barGap={8} height={145}>
           <YAxis
             yAxisId="kilogram"
             orientation="right"
@@ -55,27 +62,50 @@ export default function ActivityChart({ data }) {
             ticks={[yAxisMin, middleTick, yAxisMax]}
             tickLine={false}
             axisLine={false}
-            tickMargin={24}
+            tickMargin={40}
             tick={{ fill: "#9B9EAC", fontSize: 14 }}
           />
           <YAxis yAxisId="calories" hide />
           <XAxis
+            xAxisId="line"
             dataKey="day"
+            type="number"
+            domain={[lineStart, lineEnd]}
+            ticks={dayTicks}
             tickLine={false}
             tickMargin={16}
-            axisLine={{ stroke: chartLinesColor }}
+            axisLine={false}
             tick={{ fill: "#9B9EAC", fontSize: 14 }}
+            interval={0}
           />
           <ReferenceLine
+            xAxisId="line"
             yAxisId="kilogram"
-            y={middleTick}
+            segment={[
+              { x: lineStart, y: yAxisMin },
+              { x: lineEnd, y: yAxisMin },
+            ]}
+            stroke={chartLinesColor}
+            zIndex={0}
+          />
+          <ReferenceLine
+            xAxisId="line"
+            yAxisId="kilogram"
+            segment={[
+              { x: lineStart, y: middleTick },
+              { x: lineEnd, y: middleTick },
+            ]}
             stroke={chartLinesColor}
             strokeDasharray="3 3"
             zIndex={0}
           />
           <ReferenceLine
+            xAxisId="line"
             yAxisId="kilogram"
-            y={yAxisMax}
+            segment={[
+              { x: lineStart, y: yAxisMax },
+              { x: lineEnd, y: yAxisMax },
+            ]}
             stroke={chartLinesColor}
             strokeDasharray="3 3"
             zIndex={0}
@@ -104,6 +134,7 @@ export default function ActivityChart({ data }) {
             }}
           />
           <Bar
+            xAxisId="line"
             yAxisId="kilogram"
             barSize={7}
             dataKey="kilogram"
@@ -113,6 +144,7 @@ export default function ActivityChart({ data }) {
             minPointSize={3}
           />
           <Bar
+            xAxisId="line"
             yAxisId="calories"
             barSize={7}
             dataKey="calories"

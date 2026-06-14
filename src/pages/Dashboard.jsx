@@ -67,12 +67,14 @@ export default function Dashboard() {
             Félicitation ! Vous avez explosé vos objectifs hier 👏
           </p>
         </div>
-        <div>
+        <div className={styles.dashboardData}>
           <div className={styles.charts}>
             <ActivityChart data={userActivity.sessions} />
-            <SessionChart data={userAverageSessions.sessions} />
-            <PerformanceChart data={userPerformance} />
-            <GoalChart data={userMainData.score} />
+            <div className={styles.smallCharts}>
+              <SessionChart data={userAverageSessions.sessions} />
+              <PerformanceChart data={userPerformance} />
+              <GoalChart data={userMainData.score} />
+            </div>
           </div>
           <div className={styles.keyData}>
             {userIndicators.map((indicator) => (

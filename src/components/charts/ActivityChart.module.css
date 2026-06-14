@@ -32,9 +32,8 @@ color: #20253A;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 80px;
+    padding-bottom: 30px;
     padding-right: 16px;
-
 }
 
 .activityChart {
@@ -44,5 +43,4 @@ color: #20253A;
         padding: 30px;
         height: 320px;
         border-radius: 5px;
-
 }

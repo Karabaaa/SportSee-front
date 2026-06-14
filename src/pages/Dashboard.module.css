@@ -1,13 +1,19 @@
+.dashboard {
+  height: max(100vh, var(--page-min-height));
+  overflow: hidden;
+}
+
 .dashboardContent {
   margin-top: var(--header-h);
   margin-left: var(--sidebar-w);
-  min-height: calc(100vh - var(--header-h));
-  padding: 70px 100px;
-  overflow: auto;
+  height: calc(100% - var(--header-h));
+  padding: 50px 100px;
+  overflow: hidden;
 }
 
 .title {
   font-size: 48px;
+  line-height: 100%;
 }
 
 .title span {
@@ -25,6 +31,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: 40px;
+  padding-bottom: 75px;
 }
 
 .keyData {
@@ -32,5 +39,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap:40px;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  width: 835px;
+}
+
+.smallCharts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dashboardData {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap:40px;
 }

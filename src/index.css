@@ -33,7 +33,7 @@ body {
 }
 
 #root {
-  min-height: 100vh;
+  min-height: max(100vh, var(--page-min-height));
 }
 
 button,

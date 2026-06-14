@@ -49,7 +49,7 @@ export const SessionChart = ({ data }) => {
           xAxisId="labels"
           dataKey="day"
           tickLine={false}
-          tickMargin={16}
+          tickMargin={0}
           axisLine={false}
           tick={{ fill: textColor, fontSize: 12 }}
           padding={{ left: 16, right: 16 }}
@@ -62,7 +62,6 @@ export const SessionChart = ({ data }) => {
         <Tooltip
           axisId="line"
           cursor={<CustomCursor />}
-          i
           contentStyle={{
             backgroundColor: "white",
             border: "none",
