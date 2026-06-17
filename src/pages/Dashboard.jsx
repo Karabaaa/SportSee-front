@@ -13,19 +13,50 @@ import ActivityChart from "../components/charts/ActivityChart";
 import { SessionChart } from "../components/charts/SessionChart";
 import { PerformanceChart } from "../components/charts/PerformanceChart";
 import { GoalChart } from "../components/charts/GoalChart";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
+  const userId = 12;
+  const [data, setData] = useState(null);
+
   const {
     getUserMainData,
     getUserActivity,
     getUserAverageSessions,
     getUserPerformance,
   } = userService;
-  const userId = 12;
-  const userMainData = getUserMainData(userId);
-  const userActivity = getUserActivity(userId);
-  const userAverageSessions = getUserAverageSessions(userId);
-  const userPerformance = getUserPerformance(userId);
+
+  useEffect(() => {
+    async function loadData() {
+      const [userMainData, userActivity, userAverageSessions, userPerformance] =
+        await Promise.all([
+          getUserMainData(userId),
+          getUserActivity(userId),
+          getUserAverageSessions(userId),
+          getUserPerformance(userId),
+        ]);
+
+      setData({
+        userMainData,
+        userActivity,
+        userAverageSessions,
+        userPerformance,
+      });
+    }
+
+    loadData();
+  }, []);
+
+  if (!data) {
+    return (
+      <div className={styles.loader}>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  const { userMainData, userActivity, userAverageSessions, userPerformance } =
+    data;
 
   const userIndicators = [
     {

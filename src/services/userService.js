@@ -1,56 +1,58 @@
-import USER from "../mockData/data";
+//import USER from "../mockData/data";
 import { formatUser } from "../mappers/userMapper";
-/*
-import { fetchUser, fetchUserActivity, fetchUserAverageSessions, fetchUserPerformance } from '../api/userApi'
-*/
+import {
+  fetchUser,
+  fetchUserActivity,
+  fetchUserAverageSessions,
+  fetchUserPerformance,
+} from "./api";
 
-const {
+//MOCKDATA
+/*const {
   USER_MAIN_DATA,
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
 } = USER;
+ */
 
-export const getUserMainData = (userId) => {
-  const userData = USER_MAIN_DATA.find((user) => user.id === userId);
+export const getUserMainData = async (userId) => {
+  //MOCK DATA:
+  //const userData = USER_MAIN_DATA.find((user) => user.id === userId);
+  //return userData ? formatUser(userData) : null;
+
+  const userData = await fetchUser(userId);
   return userData ? formatUser(userData) : null;
-  /*
-  const userData = await fetchUser(userId)
-  return userData ? formatUser(userData) : null
-*/
 };
 
-export const getUserActivity = (userId) => {
-  const activityData = USER_ACTIVITY.find(
+export const getUserActivity = async (userId) => {
+  /*const activityData = USER_ACTIVITY.find(
     (activity) => activity.userId === userId,
   );
   return activityData || null;
-  /*
-  const userData = await fetchUserActivity(userId)
-  return userData
-*/
+  */
+  const userData = await fetchUserActivity(userId);
+  return userData;
 };
 
-export const getUserAverageSessions = (userId) => {
-  const averageSessionsData = USER_AVERAGE_SESSIONS.find(
+export const getUserAverageSessions = async (userId) => {
+  /*const averageSessionsData = USER_AVERAGE_SESSIONS.find(
     (sessions) => sessions.userId === userId,
   );
   return averageSessionsData || null;
-  /*
-  const userData = await fetchUserAverageSessions(userId)
-  return userData
-*/
+  */
+  const userData = await fetchUserAverageSessions(userId);
+  return userData;
 };
 
-export const getUserPerformance = (userId) => {
-  const performanceData = USER_PERFORMANCE.find(
+export const getUserPerformance = async (userId) => {
+  /*const performanceData = USER_PERFORMANCE.find(
     (performance) => performance.userId === userId,
   );
   return performanceData || null;
-  /*
-  const userData = await fetchUserPerformance(userId)
-  return userData
-*/
+  */
+  const userData = await fetchUserPerformance(userId);
+  return userData;
 };
 
 const userService = {

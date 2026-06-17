@@ -71,6 +71,14 @@
   max-width: calc(835px + 40px + 258px);
 }
 
+ .loader {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 @media (max-width: 1200px), (max-height: 850px) {
   .dashboardContent {
     padding: 25px 35px;
