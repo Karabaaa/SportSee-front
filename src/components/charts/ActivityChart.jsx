@@ -8,6 +8,7 @@ import {
   Tooltip,
 } from "recharts";
 import styles from "./ActivityChart.module.css";
+import PropTypes from "prop-types";
 
 const LegendItem = ({ color, label }) => {
   return (
@@ -158,3 +159,18 @@ export default function ActivityChart({ data }) {
     </div>
   );
 }
+
+LegendItem.propTypes = {
+  color: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
+ActivityChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};

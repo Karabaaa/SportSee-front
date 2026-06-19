@@ -1,12 +1,21 @@
 import styles from "./SessionChart.module.css";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Rectangle } from "recharts";
+import PropTypes from "prop-types";
 
 const textColor = "rgba(255, 255, 255, 0.5)";
 const sessionDays = ["L", "M", "M", "J", "V", "S", "D"];
+const chartMargin = { top: 80, right: 0, left: 0, bottom: 10 };
+const xAxisLabelsHeight = 38;
 
-const CustomCursor = (props) => {
-  const { points, width, height } = props;
+const CustomCursor = ({ points, width, height }) => {
+  if (!points || points.length === 0) {
+    return null;
+  }
   const { x } = points[0];
+  const cursorWidth = width - x;
+
+  const cursorHeight =
+    height + chartMargin.top + chartMargin.bottom + xAxisLabelsHeight;
 
   return (
     <Rectangle
@@ -14,13 +23,16 @@ const CustomCursor = (props) => {
       stroke="none"
       x={x}
       y={0}
-      width={width - x}
-      height={height}
+      width={cursorWidth}
+      height={cursorHeight}
     />
   );
 };
 
 export const SessionChart = ({ data }) => {
+  const sessionLengths = data.map((session) => session.sessionLength);
+  const dataMin = Math.min(...sessionLengths);
+  const dataMax = Math.max(...sessionLengths);
   return (
     <div className={styles.sessionChart}>
       <h2 className={styles.title}>
@@ -34,7 +46,7 @@ export const SessionChart = ({ data }) => {
         }}
         responsive
         data={data}
-        margin={{ top: 80, right: 0, left: 0, bottom: 12 }}
+        margin={chartMargin}
       >
         <XAxis
           xAxisId="line"
@@ -55,7 +67,7 @@ export const SessionChart = ({ data }) => {
             return sessionDays[value - 1];
           }}
         />
-        <YAxis hide />
+        <YAxis hide domain={[dataMin - 10, dataMax + 10]} />
         <Tooltip
           axisId="line"
           cursor={<CustomCursor />}
@@ -92,4 +104,13 @@ export const SessionChart = ({ data }) => {
       </LineChart>
     </div>
   );
+};
+
+SessionChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      sessionLength: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };

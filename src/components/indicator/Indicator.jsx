@@ -1,4 +1,5 @@
 import styles from "./Indicator.module.css";
+import PropTypes from "prop-types";
 
 export default function Indicator({ icon, value, unit, label }) {
   return (
@@ -14,3 +15,10 @@ export default function Indicator({ icon, value, unit, label }) {
     </div>
   );
 }
+
+Indicator.propTypes = {
+  icon: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};

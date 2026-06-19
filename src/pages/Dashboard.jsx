@@ -15,25 +15,25 @@ import { PerformanceChart } from "../components/charts/PerformanceChart";
 import { GoalChart } from "../components/charts/GoalChart";
 import { useEffect, useState } from "react";
 
-export default function Dashboard() {
-  const userId = 12;
-  const [data, setData] = useState(null);
+const USER_ID = 12;
+const {
+  getUserMainData,
+  getUserActivity,
+  getUserAverageSessions,
+  getUserPerformance,
+} = userService;
 
-  const {
-    getUserMainData,
-    getUserActivity,
-    getUserAverageSessions,
-    getUserPerformance,
-  } = userService;
+export default function Dashboard() {
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     async function loadData() {
       const [userMainData, userActivity, userAverageSessions, userPerformance] =
         await Promise.all([
-          getUserMainData(userId),
-          getUserActivity(userId),
-          getUserAverageSessions(userId),
-          getUserPerformance(userId),
+          getUserMainData(USER_ID),
+          getUserActivity(USER_ID),
+          getUserAverageSessions(USER_ID),
+          getUserPerformance(USER_ID),
         ]);
 
       setData({

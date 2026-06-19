@@ -6,6 +6,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
 } from "recharts";
+import PropTypes from "prop-types";
 
 const tradMapper = {
   cardio: "Cardio",
@@ -64,4 +65,16 @@ export const PerformanceChart = ({ data }) => {
       </RadarChart>
     </div>
   );
+};
+
+PerformanceChart.propTypes = {
+  data: PropTypes.shape({
+    kind: PropTypes.objectOf(PropTypes.string).isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.number.isRequired,
+        kind: PropTypes.number.isRequired,
+      }).isRequired,
+    ).isRequired,
+  }).isRequired,
 };

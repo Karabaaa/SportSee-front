@@ -1,5 +1,6 @@
 import styles from "./GoalChart.module.css";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import PropTypes from "prop-types";
 
 export const GoalChart = ({ data }) => {
   const score = data * 100;
@@ -47,4 +48,8 @@ export const GoalChart = ({ data }) => {
       </RadialBarChart>
     </div>
   );
+};
+
+GoalChart.propTypes = {
+  data: PropTypes.number.isRequired,
 };
