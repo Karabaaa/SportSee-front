@@ -1,16 +1,136 @@
-# React + Vite
+# SportSee Front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SportSee est un tableau de bord sportif développé avec React. L'application affiche les données d'un utilisateur : activité quotidienne, durée moyenne des sessions, performance par catégorie, score d'objectif et indicateurs nutritionnels.
 
-Currently, two official plugins are available:
+Ce dossier contient la partie front-end du projet. La partie back-end se trouve dans le dossier voisin `SportSee`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies
 
-## React Compiler
+- React
+- Vite
+- React Router
+- Recharts
+- PropTypes
+- CSS Modules
+- ESLint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Prérequis
 
-## Expanding the ESLint configuration
+- Node.js
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+
+Depuis le dossier front :
+
+```bash
+cd SportSee-front
+npm install
+```
+
+Depuis le dossier back :
+
+```bash
+cd ../SportSee
+npm install
+```
+
+## Lancer le projet
+
+Le front consomme l'API disponible sur `http://localhost:3000`. Il faut donc lancer le back-end avant ou en parallèle du front.
+
+### 1. Lancer l'API
+
+Depuis le dossier `SportSee` :
+
+```bash
+npm run dev
+```
+
+L'API est disponible sur :
+
+```text
+http://localhost:3000
+```
+
+### 2. Lancer le front
+
+Depuis le dossier `SportSee-front` :
+
+```bash
+npm run dev
+```
+
+Vite affiche ensuite l'URL locale de l'application, généralement :
+
+```text
+http://localhost:5173
+```
+
+## Scripts disponibles
+
+```bash
+npm run dev
+```
+
+Lance le serveur de développement Vite.
+
+```bash
+npm run build
+```
+
+Génère la version de production dans le dossier `dist`.
+
+```bash
+npm run preview
+```
+
+Lance une prévisualisation locale du build de production.
+
+```bash
+npm run lint
+```
+
+Analyse le code avec ESLint.
+
+## Données utilisées
+
+L'application récupère les données depuis l'API du back-end `SportSee` :
+
+- `GET /user/:userId`
+- `GET /user/:userId/activity`
+- `GET /user/:userId/average-sessions`
+- `GET /user/:userId/performance`
+
+L'API fournit actuellement deux utilisateurs de test :
+
+- `12`
+- `18`
+
+L'utilisateur affiché dans le dashboard est défini dans `src/pages/Dashboard.jsx` avec la constante `USER_ID`.
+
+## Structure du front
+
+```text
+src/
+├── assets/              # Logos et icônes
+├── components/          # Composants réutilisables
+│   ├── charts/          # Graphiques Recharts
+│   ├── indicator/       # Cartes de données nutritionnelles
+│   ├── navbar/          # Barre de navigation haute
+│   └── sidebar/         # Barre latérale
+├── mappers/             # Formatage des données API
+├── mockData/            # Données mockées du backend
+├── pages/               # Pages principales
+├── router/              # Routes React
+└── services/            # Appels API et accès aux données
+```
+
+## Vérification avant livraison
+
+```bash
+npm run lint
+npm run build
+```
+
+Ces commandes permettent de vérifier que le code respecte les règles ESLint et que l'application compile correctement.
