@@ -1,5 +1,10 @@
 import styles from "./GoalChart.module.css";
-import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import {
+  RadialBarChart,
+  RadialBar,
+  PolarAngleAxis,
+  ResponsiveContainer,
+} from "recharts";
 import PropTypes from "prop-types";
 
 export const GoalChart = ({ data }) => {
@@ -16,36 +21,31 @@ export const GoalChart = ({ data }) => {
           objectif
         </p>
       </div>
-      <RadialBarChart
-        style={{
-          width: "100%",
-          maxWidth: "260px",
-          maxHeight: "260px",
-          aspectRatio: 1,
-        }}
-        responsive
-        cx="50%"
-        cy="50%"
-        innerRadius="58%"
-        outerRadius="80%"
-        barSize={10}
-        data={chartData}
-        startAngle={90}
-        endAngle={450}
-      >
-        <PolarAngleAxis
-          type="number"
-          domain={[0, 100]}
-          tick={false}
-          tickLine={false}
-          axisLine={false}
-        />
-        <RadialBar
-          dataKey="score"
-          fill="var(--primary-color)"
-          cornerRadius={50}
-        />
-      </RadialBarChart>
+      <ResponsiveContainer width="100%" aspect={1}>
+        <RadialBarChart
+          cx="50%"
+          cy="50%"
+          innerRadius="58%"
+          outerRadius="80%"
+          barSize={10}
+          data={chartData}
+          startAngle={90}
+          endAngle={450}
+        >
+          <PolarAngleAxis
+            type="number"
+            domain={[0, 100]}
+            tick={false}
+            tickLine={false}
+            axisLine={false}
+          />
+          <RadialBar
+            dataKey="score"
+            fill="var(--primary-color)"
+            cornerRadius={50}
+          />
+        </RadialBarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
