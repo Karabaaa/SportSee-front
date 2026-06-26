@@ -40,7 +40,7 @@ export const PerformanceChart = ({ data }) => {
           aspectRatio: 1,
         }}
         responsive
-        outerRadius="80%"
+        outerRadius="65%"
         data={formattedData}
         margin={{
           top: 20,
