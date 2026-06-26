@@ -16,8 +16,12 @@ Ce dossier contient la partie front-end du projet. La partie back-end se trouve 
 
 ## Prérequis
 
-- Node.js
-- npm
+- Node.js 12.18 ou supérieur pour le back-end SportSee (testé jusqu'à Node 20.0)
+- Node.js compatible avec Vite pour le front-end
+- npm pour le front-end
+- Yarn pour le back-end SportSee
+
+Si vous utilisez plusieurs versions de Node.js, il est recommandé d'installer [nvm](https://github.com/nvm-sh/nvm) pour gérer facilement les versions de Node.js.
 
 ## Installation
 
@@ -32,7 +36,7 @@ Depuis le dossier back :
 
 ```bash
 cd ../SportSee
-npm install
+yarn
 ```
 
 ## Lancer le projet
@@ -44,7 +48,7 @@ Le front consomme l'API disponible sur `http://localhost:3000`. Il faut donc lan
 Depuis le dossier `SportSee` :
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 L'API est disponible sur :
